@@ -39,6 +39,6 @@ public class Submissions {
 
     @ManyToOne
     @JoinColumn(name = "id_Assignment", referencedColumnName = "id_Assignment")
-    private Assignments assignments;
+    private Assignments assignment;
 
 }

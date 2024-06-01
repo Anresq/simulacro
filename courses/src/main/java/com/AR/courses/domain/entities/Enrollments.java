@@ -32,6 +32,6 @@ public class Enrollments {
 
     @ManyToOne
     @JoinColumn(name = "id_Course", referencedColumnName = "id_Course")
-    private Courses courses;
+    private Courses course;
 
 }

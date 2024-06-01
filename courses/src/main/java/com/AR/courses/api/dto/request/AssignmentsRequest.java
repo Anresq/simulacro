@@ -1,5 +1,27 @@
 package com.AR.courses.api.dto.request;
 
-public class AssignmentsRequest {
-    
+import com.AR.courses.api.dto.request.Update.AssignmentUpdateRequest;
+import com.AR.courses.domain.entities.Lessons;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
+
+@EqualsAndHashCode(callSuper = false)
+@Data
+@SuperBuilder
+@AllArgsConstructor
+@NoArgsConstructor
+@Schema(description = "DTO for assignment request")
+public class AssignmentsRequest extends AssignmentUpdateRequest {
+
+    @Min(value = 1, message = "The ID of the lesson must be greater than zero")
+    @NotNull(message = "the ID of the lesson is necessary,value cannot be less than 1")
+    @Schema(description = "ID of the lesson", example = "1")
+    private Lessons lessons;
 }
